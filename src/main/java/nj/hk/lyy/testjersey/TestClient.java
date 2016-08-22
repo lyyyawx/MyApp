@@ -1,5 +1,10 @@
 package nj.hk.lyy.testjersey;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.util.Date;
 
 import javax.ws.rs.client.Client;
@@ -8,6 +13,11 @@ import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemHeaders;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider;
 
@@ -15,11 +25,12 @@ public class TestClient {
 	private static String token = null;
 	
 	public static void main(String[] args) throws Exception {
-		for (int i = 0; i < Integer.MAX_VALUE; i++) {
-			Thread.sleep(100);
-			sendTxtMsg(i);
-			
-		}
+		System.out.println(getHuanxinToken().getAccess_token());
+//		for (int i = 0; i < Integer.MAX_VALUE; i++) {
+//			Thread.sleep(100);
+//			sendTxtMsg(i);
+//			
+//		}
 //		Long today = new Date().getTime();
 //		Long todayBeforeOneHour = today - 1000 * 60 * 60;
 //		System.out.println(new Date().getTime() - 1000 * 60 * 60);
@@ -64,5 +75,10 @@ public class TestClient {
 			//System.out.println("发送文本信息成功");
 		}
 		
+	}
+	
+	private static void SendFile(){
+//		DiskFileItemFactory factory = new DiskFileItemFactory();
+//		CommonsMultipartFile file = new CommonsMultipartFile(fileItem)
 	}
 }
